@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Attribute\AsCommand; 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,11 +21,12 @@ require __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+#[AsCommand(
+    name: 'app:send-email',
+    description: 'Sends a secure whitelisted test email with 1 retry and file logging.'
+)]
 class SendEmailCommand extends Command
 {
-    protected static $defaultName = 'app:send-email';
-    protected static $defaultDescription = 'Sends a secure whitelisted test email with 1 retry and file logging.';
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var \Symfony\Component\Console\Helper\QuestionHelper $helper */
