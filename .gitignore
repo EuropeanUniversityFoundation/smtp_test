@@ -1,0 +1,17 @@
+# Composer dependencies
+/vendor/
+
+# Local sensitive environment variables
+.env
+!.env.example
+
+# Local diagnostic files and execution audit logs
+*.log
+/smtp_delivery.log
+
+# Operating system artifacts
+.DS_Store
+Thumbs.db
+
+# DDEV
+.ddev
